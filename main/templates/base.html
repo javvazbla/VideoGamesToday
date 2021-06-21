@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+  <title>vgamestoday -  {% block title %}{% endblock %}</title>
+  <meta charset='utf-8'>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <style>
+      body{
+          background-color: #EBEBEB;
+          background-image: url("/media/ptn-stripe.png");
+      }
+
+      #boton-actualizar{
+          display: block;
+          margin: 0 auto;
+      }
+
+      #cabecera{
+        padding: 10px;
+        text-transform: uppercase;
+        font-style: italic;
+      }
+
+      #contenido{
+          background-color: white;
+      }
+
+      #formulario{
+        margin-bottom: 10px;
+      }
+
+      #pie{
+          background-color: #f8f9fa;
+          padding: 10px 20px;
+          border-radius: 0px 0px 10px 10px;
+          margin-top: -17px;
+          margin-bottom: 30px;
+      }
+
+      #pie p{
+          text-align: right;
+      }
+
+      #menu{
+        border-radius: 10px 10px 0px 0px;
+      }
+
+      #ultimas-noticias{
+          text-align: center;
+          padding-bottom: 25px;
+      }
+
+      #pie a, .navbar a{
+        color: #004590;
+      }
+
+      #pie a:hover, .navbar a:hover{
+        color: #0063ce;
+      }
+
+      .imagen-logo-card{
+          padding: 10px;
+      }
+
+      .card-noticias{
+          display: inline-block;
+          vertical-align:top;
+          margin: 5px;
+      }
+
+      .card-noticias:hover{
+        background-color: #eef6ff;
+        box-shadow: 4px 4px 5px -2px rgba(41,70,143,1);
+        transition-duration: 0.5s;
+      }
+
+      #logotipo-principal{
+          display: block;
+          margin: 0 auto;
+          max-width: 400px;
+      }
+
+      .fuerte{
+        font-weight: bold;
+        color: #007bff;
+      }
+
+      section.pagination nav{  
+        display: block;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+
+      .select-maximo-ancho{
+        max-width: 150px !important;
+        margin-left: 10px;
+        display: inline-block;
+      }
+
+      header{
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+  </style>
+</head>
+<body>
+  <header>
+
+    {% block encabezado %}{% endblock %}
+
+  </header>
+  <nav class="navbar navbar-expand-sm bg-light container" id="menu">
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/noticiasporweb/">Filtrar por web</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/noticiasporplataforma/">Filtrar por plataforma</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/noticiasporfabricante/">Filtrar por fabricante</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/buscar/">Búsqueda</a>
+      </li>
+    </ul>
+  
+  </nav>
+  <section class="container" id="contenido">
+    {% block contenido %}{% endblock %}
+  </section>
+  <section id="pie" class="container">
+    <p><a href="/sobre/">Sobre nosotros</a></p>
+  </section>
+  
+</body>
+</html>

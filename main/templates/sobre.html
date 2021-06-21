@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Sobre nosotros
+{% endblock %}
+
+{% block encabezado %}
+    <a href="/"><img src='{{MEDIA_URL}}logo_vgamestoday.png' alt='vgamestoday logo' id="logotipo-principal"></a>
+{% endblock %}
+
+{% block contenido %}
+    <h1 class="text-center" id="cabecera">Sobre <span class="fuerte">nosotros</span></h1>
+    <p>vgamestoday es un agregador de noticias que tiene como objetivo reunir en un único portal las noticias del mundo de los videojueos de las principales webs en castellano en un solo portal.</p>
+
+    <h2>¿Cómo <span class="fuerte">funciona</span>?</h2>
+    <p>vgamestoday permite realizar una actualización de base de datos una vez cada dos horas. El motivo es porque la intención es tener un vistazo de la actualidad, y permitir una actualización cada dos horas se puede saber todas las novedades sin hacer demasiadas peticiones a las webs</p>
+
+    <h2>¿Escribís las <span class="fuerte">noticias</span>?</h2>
+    <p>No. Simplemente agregamos los títulos, subtítulos y categorías para que puedas saber lo que se publican en todas las webs y leer las noticias allí. Somos unos intermediarios entre el lector y la revista</p>
+
+    <h2>¿Cómo funciona la búsqueda por <span class="fuerte">fuente</span>?</h2>
+    <p>La búsqueda por fuente devuelve solo las noticias de la web que escojas.</p>
+
+    <h2>¿Cómo funciona la búsqueda por <span class="fuerte">plataformas</span>?</h2>
+    <p>Devuelve los resultados de la búsqueda de la plataforma escogida en todas las webs disponibles.</p>
+
+    <h2>¿Cómo funciona la búsqueda por <span class="fuerte">fabricante</span>?</h2>
+    <p>La búsqueda por fabricante devuelve un resultado con todas las notcias de todas las webs sobre las plataformas de un fabricante dado, entendiéndose como fabricante tanto la fabricación hardware (videoconsolas) como desarrollo de sistemas operativos (como Android) y plataformas en la nube (Stadia).</p>
+
+    <h2>¿Cómo funciona la búsqueda por <span class="fuerte">texto</span>?</h2>
+    <p>La búsqueda por texto permite hacer búsquedas más completas. Busca en todos los campos posibles (tanto de las noticias, como de las webs y plataformas) un texto dado por el usuario de distintas forrmas:</p>
+    <ul>
+        <li><strong>Búsqueda de todos los términos</strong>: Es el comportamiento normal. Introduces un texto y se buscan todas aquellas noticias que contentan todas las palabras introducidas.</li>
+        <li><strong>Búsqueda de una frase en concreto</strong>: Para buscar las noticias que contengan una frase o conjunto de palabras exactas, hay que introducir el texto entre comillas. Por ejemplo: "Resident Evil"</li>
+        <li><strong>Búsqueda de algún término</strong>: Dado una lista de términos, busca las noticias que tengan al menos uno de esos términos relacionados. Para ello, hay que introducir el texto entre la etiqueta "or" de la siguiente forma: or(Resident Evil). Se pueden combinar con la búsqueda de frases exactas, por ejemplo: or("Resident Evil" PS4).</li>
+    </ul>
+
+    <br>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Noticias por fabricante
+{% endblock %}
+
+{% block encabezado %}
+    <a href="/"><img src='{{MEDIA_URL}}logo_vgamestoday.png' alt='vgamestoday logo' id="logotipo-principal"></a>
+    
+{% endblock %}
+
+{% block contenido %}
+    <h1 class="text-center" id="cabecera">Búsqueda de noticias por <span class="fuerte">fabricante</span></h1>
+    <form id="formulario" method="get" action=''>
+        {{formulario}}
+        <input type='submit' value='Realizar Busqueda' class="btn btn-primary"/>
+    </form>
+    <section id="ultimas-noticias">
+    {% for noticia in noticias %}
+    
+        <div class="card card-noticias" style="width: 18rem;">
+            <a href="/noticiasporweb/?fuente={{noticia.fuente.id}}"><img src="{{MEDIA_URL}}{{noticia.fuente.logotipo}}" class="card-img-top imagen-logo-card" alt="Imagen"></a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{{noticia.enlace}}" target="_blank">{{noticia.titulo}}</a></h5>
+              <p class="card-text">{{noticia.subtitulo}}</p>
+              <hr>
+              <p><strong>Plataformas:</strong>
+                {% for p in noticia.plataforma.all %}
+                <a href="/noticiasporplataforma/?plataforma={{p.id}}">{{p.acronimo}}</a>
+                    {% empty %}
+                    Sin plataformas
+			    {% endfor %}
+              </p>
+              <hr>
+              <p>
+                <strong>Fecha</strong>: {{noticia.fecha}}
+              </p>
+              <a href="{{noticia.enlace}}" class="btn btn-primary" target="_blank">Ir a la noticia en: {{noticia.fuente}}</a>
+            </div>
+          </div>
+
+        {% endfor %}
+        <section class="pagination">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    {% if noticias.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?fabricante={{ fabricante_get }}&page={{ noticias.previous_page_number }}">Anterior</a></li>
+                    {% endif %}
+                        <li class="page-item"><a class="page-link" href="#">Página {{noticias.number}}</a></li>
+                    {% if noticias.has_next %}
+                        <li class="page-item"><a class="page-link" href="?fabricante={{ fabricante_get }}&page={{ noticias.next_page_number }}">Siguiente</a></li>
+                    {% endif %}
+                </ul>
+              </nav>
+        </section>
+    </section>
+{% endblock %}
